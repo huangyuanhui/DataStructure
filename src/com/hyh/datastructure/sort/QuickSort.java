@@ -22,6 +22,7 @@ public class QuickSort {
 
     private static void quickSort(int[] arr, int L, int R) {
         if (L < R) {
+            //随机快排的额外空间复杂度logN 就是要记住这个划分点
             int[] pivot = partition(arr, L, R);
             quickSort(arr, L, pivot[0] - 1);
             quickSort(arr, pivot[1] + 1, R);
@@ -33,6 +34,8 @@ public class QuickSort {
         int less = L - 1;
         int more = R + 1;
         int currIndex = L;
+        //没有下面这一行是经典快排 有了下面这行是随机快排（随即快排是最常用的排序算法 因为代码很简洁 代码很简洁
+        // ，说明常数项操作很少 mergeSort输在要准备一个额外的数组与数组的拷贝）
         int partitionNum = arr[L + (int) (Math.random() * (R - L + 1))];
         while (currIndex < more) {
             if (arr[currIndex] < partitionNum) {

@@ -2,7 +2,7 @@ package com.hyh.datastructure.sort;
 
 import java.util.Arrays;
 
-//堆排序
+//堆排序(可认为一个堆在一个数组上伸（heapInsert）缩(heapify) 完成堆排序)
 public class HeapSort {
     public static void main(String[] args) {
        /* int[] arr = {4, 6, 8, 5, 9};
