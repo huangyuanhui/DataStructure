@@ -2,7 +2,7 @@ package com.hyh.datastructure.sort;
 
 import java.util.Arrays;
 
-//归并排序
+//归并排序（能做到稳定性 只要在合并的时候遇到相等的就先拷贝左边的）
 public class MergeSort {
     public static void main(String[] args) {
         /*int[] arr = {8, 4, 5, 7, 1, 3, 6, 2};

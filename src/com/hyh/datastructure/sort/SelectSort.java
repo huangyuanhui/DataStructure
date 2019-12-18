@@ -2,7 +2,8 @@ package com.hyh.datastructure.sort;
 
 import java.util.Arrays;
 
-//选择排序
+//选择排序（不能做到稳定性 为什么要追求稳定性 因为显示业务场景往往要求要稳定性）
+//排序稳定性：在值相等的情况下 排序过后 相对顺序保持原来的不变
 public class SelectSort {
     public static void main(String[] args) {
         //int[] arr = {5, -1, 9, 3, 7};

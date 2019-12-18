@@ -3,7 +3,7 @@ package com.hyh.datastructure.sort;
 import java.util.Arrays;
 import java.util.Random;
 
-//快速排序(要比希尔排序快的)
+//快速排序(要比希尔排序快的 快排做不到稳定性 因为partition的过程做不到稳定性)
 public class QuickSort {
     public static void main(String[] args) {
         //int[] arr = {8, 2, 5, -1, 9, 3, 7, 4, 6, 1};

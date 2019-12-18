@@ -2,7 +2,7 @@ package com.hyh.datastructure.sort;
 
 import java.util.Arrays;
 
-//插入排序
+//插入排序 (可以实现稳定性)
 public class InsertSort {
     public static void main(String[] args) {
         //int[] arr = {8, 2, 5, -1, 9, 3, 7, 4, 6, 1};

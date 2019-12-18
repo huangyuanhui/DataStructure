@@ -1,7 +1,7 @@
 package com.hyh.datastructure.sort;
 
 import java.util.Arrays;
-//冒泡排序
+//冒泡排序 （可以实现稳定性）
 public class BubbleSort {
     public static void main(String[] args) {
         //int[] arr = {5, -1, 9, 3, 7};
