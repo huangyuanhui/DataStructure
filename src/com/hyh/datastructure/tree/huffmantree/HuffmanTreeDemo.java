@@ -2,6 +2,7 @@ package com.hyh.datastructure.tree.huffmantree;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 //霍夫曼树
@@ -72,5 +73,25 @@ class Node implements Comparable<Node>{
     public int compareTo(Node o) {
         //表示从小到大
         return this.value - o.value;
+    }
+}
+
+//升序比较器
+class AscComparator implements Comparator<Node> {
+
+    @Override
+    public int compare(Node o1, Node o2) {
+        //升序
+        return o1.value - o2.value;
+    }
+}
+
+//降序比较器
+class DescComparator implements Comparator<Node> {
+
+    @Override
+    public int compare(Node o1, Node o2) {
+        //降序
+        return o2.value - o1.value;
     }
 }
