@@ -20,7 +20,6 @@ public class HuffmanTreeDemo {
         }
         root.preOrder();
     }
-
     //创建霍夫曼树
     private static Node createHuffmanTree(int[] arr) {
         List<Node> nodeList = new ArrayList<>();
@@ -41,7 +40,6 @@ public class HuffmanTreeDemo {
         }
         return nodeList.get(0);
     }
-
 }
 
 class Node implements Comparable<Node>{
