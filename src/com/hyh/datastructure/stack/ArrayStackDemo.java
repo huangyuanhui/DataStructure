@@ -1,8 +1,11 @@
 package com.hyh.datastructure.stack;
+
+import java.util.Stack;
+
 //数组模拟栈
 public class ArrayStackDemo {
     public static void main(String[] args) {
-        ArrayStack stack = new ArrayStack(4);
+        /*ArrayStack stack = new ArrayStack(4);
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -14,13 +17,21 @@ public class ArrayStackDemo {
         System.out.println(stack.pop());
         System.out.println(stack.pop());
         System.out.println(stack.pop());
-        System.out.println(stack.pop());
+        System.out.println(stack.pop());*/
 
+
+        ArrayStack3 stack = new ArrayStack3();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        System.out.println("stack.getMin() = " + stack.getMin());
     }
 }
 
 //栈数据结构
-class ArrayStack{
+class ArrayStack {
     private int top = -1;
     private int maxSize;
     private int[] stack;
@@ -75,4 +86,49 @@ class ArrayStack{
         }
         return stack[top];
     }
+}
+
+
+//栈数据结构 实现获取栈中最小元素 同时时间复杂度O(1)
+class ArrayStack3 {
+    private Stack<Integer> numStack;
+    private Stack<Integer> minStack;
+
+    public ArrayStack3() {
+        numStack = new Stack<>();
+        minStack = new Stack<>();
+    }
+
+    public boolean isEmpty() {
+        return numStack.isEmpty();
+    }
+
+    //压/入栈
+    public void push(int element) {
+        numStack.push(element);
+        if (minStack.isEmpty()) {
+            minStack.push(element);
+        } else {
+            element = element > minStack.peek() ? minStack.peek() : element;
+            minStack.push(element);
+        }
+    }
+
+    //出栈
+    public int pop() {
+        if (isEmpty()) {
+            throw new RuntimeException("栈为空。。。。");
+        }
+        minStack.pop();
+        return numStack.pop();
+    }
+
+    //获取栈内最小的数
+    public int getMin() {
+        if (isEmpty()) {
+            throw new RuntimeException("栈为空。。。。");
+        }
+        return minStack.peek();
+    }
+
 }

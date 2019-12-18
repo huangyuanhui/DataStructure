@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ArrayQueueDemo2 {
     public static void main(String[] args) {
-        ArrayCircleQueue queue = new ArrayCircleQueue(4);
+        /*ArrayCircleQueue queue = new ArrayCircleQueue(4);
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
         char key = ' ';
@@ -47,6 +47,61 @@ public class ArrayQueueDemo2 {
                 case 'h':
                     try {
                         int res = queue.headQueue();
+                        System.out.println("查看队列头数据：" + res);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        System.out.println("Program exit.");*/
+
+
+        ArrayCircleQueue2 queue = new ArrayCircleQueue2(4);
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
+        char key = ' ';
+        while (loop) {
+            System.out.println("s(show): 显示队列");
+            System.out.println("e(exit): 退出程序");
+            System.out.println("a(add): 添加数据到队列");
+            System.out.println("g(get): 从队列取出数据");
+            System.out.println("h(head): 查看队列头的数据");
+            key = scanner.next().charAt(0);
+            switch (key) {
+                case 's':
+                    try {
+                        queue.list();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'e':
+                    scanner.close();
+                    loop=false;
+                    break;
+                case 'a':
+                    try {
+                        System.out.print("输入加入队列的数据：");
+                        int value=scanner.nextInt();
+                        queue.push(value);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'g':
+                    try {
+                        int res = queue.poll();
+                        System.out.println("从队列中取出：" + res);
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'h':
+                    try {
+                        int res = queue.peek();
                         System.out.println("查看队列头数据：" + res);
                     }catch (Exception e){
                         System.out.println(e.getMessage());
@@ -111,6 +166,70 @@ class ArrayCircleQueue {
     }
 
     public int headQueue() {
+        if (isEmpty()) {
+            throw new RuntimeException("队列为空。。。。");
+        }
+        return array[front];
+    }
+}
+
+
+//我们约定rear指向队尾后一个位置 (此处实现是数组没有空一个位置的)
+class ArrayCircleQueue2 {
+    private int front; //指向队列头 初始为0
+    private int rear;  //指向队列尾 初始为0
+    private int size; //初始为0 记录队列有效元素的个数 实现对front与rear解耦
+    private int[] array;
+
+    public ArrayCircleQueue2(int arrSize) {
+        array = new int[arrSize];
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public boolean isFull() {
+        return size == array.length;
+    }
+
+    //添加数据进队列
+    public void push(int element) {
+        if (isFull()) {
+            System.out.println("队列已满。。。。");
+            return;
+        }
+        array[rear++] = element;
+        rear = rear == array.length ? 0 : rear;
+        //有效个数加一
+        size++;
+    }
+
+    //数据出循环队列
+    public int poll() {
+        if (isEmpty()) {
+            throw new RuntimeException("队列为空。。。。");
+        }
+        int temp = front;
+        front = front == array.length - 1 ? 0 : front + 1;
+        size--;
+        return array[temp];
+    }
+
+    public void list() {
+        if (isEmpty()) {
+            System.out.println("队列为空。。。。");
+            return;
+        }
+        //有效个数
+        int step = rear != front ? (rear - front + array.length) % array.length : array.length;
+        for (int i = 0; i < step; i++) {
+            System.out.print("array[" + (front + i) % array.length + "] = " + array[(front + i) % array.length] + " ");
+        }
+        System.out.println();
+    }
+
+    public int peek() {
         if (isEmpty()) {
             throw new RuntimeException("队列为空。。。。");
         }
