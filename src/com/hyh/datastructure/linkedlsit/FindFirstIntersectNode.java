@@ -15,12 +15,16 @@ public class FindFirstIntersectNode {
 		if (head1 == null || head2 == null) {
 			return null;
 		}
+		//获得链表1的第一个入环节点
 		Node loop1 = getLoopNode(head1);
+		//获得链表2的第一个入环节点
 		Node loop2 = getLoopNode(head2);
 		if (loop1 == null && loop2 == null) {
+			//两个无环链表的相交问题
 			return noLoop(head1, head2);
 		}
 		if (loop1 != null && loop2 != null) {
+			//两个有环链表的相交问题
 			return bothLoop(head1, loop1, head2, loop2);
 		}
 		return null;
