@@ -76,10 +76,14 @@ public class Code_07_IsBSTAndCBT {
 		return res;
 	}
 
+	//判断一颗树是否是完全二叉树
+	//结论 ：一个节点有右没有左 不是
+	//一个节点有左没有右 或者既没有左又没有右 那么这个节点后面的节点都必须是叶子节点
 	public static boolean isCBT(Node head) {
-		if (head == null) {
+		/*if (head == null) {
 			return true;
 		}
+		//利用队列先进先出 后进后出的特性按层打印
 		Queue<Node> queue = new LinkedList<Node>();
 		boolean leaf = false;
 		Node l = null;
@@ -99,6 +103,42 @@ public class Code_07_IsBSTAndCBT {
 				queue.offer(r);
 			} else {
 				leaf = true;
+			}
+		}
+		return true;*/
+
+
+		if (head == null) {
+			return true;
+		}
+
+		Queue<Node> queue = new LinkedList<>();
+		//开启一个阶段：是叶子节点的阶段
+		boolean isLeafNodeState = false;
+		queue.offer(head);
+		Node leftNode = null;
+		Node rightNode = null;
+		while (!queue.isEmpty()) {
+			head = queue.poll();
+			leftNode = head.left;
+			rightNode = head.right;
+
+			//(leftNode == null && rightNode != null) 一个节点有右没有左
+			//一个有左没有右 或者既没有左又没有右的节点 其后面的节点竟然不是叶子节点：
+			//(isLeafNodeState && (leftNode != null || rightNode != null))
+			if ((isLeafNodeState && (leftNode != null || rightNode != null)) || (leftNode == null && rightNode != null)) {
+				return false;
+			}
+
+			if (leftNode != null) {
+				queue.offer(leftNode);
+			}
+
+			if (rightNode != null) {
+				queue.offer(rightNode);
+			}else {
+				//开启阶段
+				isLeafNodeState = true;
 			}
 		}
 		return true;
