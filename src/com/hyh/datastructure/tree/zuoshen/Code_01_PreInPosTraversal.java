@@ -113,7 +113,7 @@ public class Code_01_PreInPosTraversal {
 
     //后序
     public static void posOrderUnRecur1(Node head) {
-        System.out.print("pos-order: ");
+        /*System.out.print("pos-order: ");
         if (head != null) {
             Stack<Node> s1 = new Stack<Node>();
             Stack<Node> s2 = new Stack<Node>();
@@ -130,6 +130,26 @@ public class Code_01_PreInPosTraversal {
             }
             while (!s2.isEmpty()) {
                 System.out.print(s2.pop().value + " ");
+            }
+        }
+        System.out.println();*/
+        System.out.println("树的后序遍历非递归版");
+        if (head != null) {
+            Stack<Node> stack1 = new Stack<>();
+            Stack<Node> stack2 = new Stack<>();
+            stack1.push(head);
+            if (!stack1.isEmpty()) {
+                head = stack1.pop();
+                stack2.push(head);
+                if (head.left != null) {
+                    stack1.push(head.left);
+                }
+                if (head.right != null) {
+                    stack1.push(head.right);
+                }
+            }
+            while (!stack2.isEmpty()) {
+                System.out.print(stack2.pop().value + " ");
             }
         }
         System.out.println();
