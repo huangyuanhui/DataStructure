@@ -1,5 +1,6 @@
 package com.hyh.datastructure.linkedlsit;
 
+//找出链表中第一个入环的节点
 public class FindFirstIntersectNode {
 
 	public static class Node {

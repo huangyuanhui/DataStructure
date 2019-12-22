@@ -2,7 +2,7 @@ package com.hyh.datastructure.linkedlsit;
 
 import java.util.HashMap;
 
-//复制含有随机节点的链表
+//复制拷贝含有随机节点的链表
 public class CopyListWithRandom {
 
 

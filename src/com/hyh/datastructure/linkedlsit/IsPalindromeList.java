@@ -1,4 +1,4 @@
-package com.hyh.datastructure.stack;
+package com.hyh.datastructure.linkedlsit;
 
 import java.util.Stack;
 
