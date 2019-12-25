@@ -1,5 +1,7 @@
 package com.hyh.datastructure.class_08;
 
+//母牛每年生一致母牛 新出生的母牛成长三年后也能生一只母牛 假设牛不会死 最开始一头牛 求N年后  母牛的数量
+//结论： f(n) = f(n - 1) + f(n- 3) 牛不会死 去年的牛会保留到今年 三年前的牛都会生牛
 public class Code_05_Cow {
 
 	public static int cowNumber1(int n) {
@@ -38,6 +40,16 @@ public class Code_05_Cow {
 		int n = 20;
 		System.out.println(cowNumber1(n));
 		System.out.println(cowNumber2(n));
+		System.out.println("cowCount(10) = " + cowCount(20));
 	}
 
+	private static int cowCount(int year) {
+		if (year <= 0) {
+			return 0;
+		}
+		if (year == 1 || year == 2 || year == 3) {
+			return year;
+		}
+		return cowCount(year - 1) + cowCount(year - 3);
+	}
 }

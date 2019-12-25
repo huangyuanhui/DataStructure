@@ -2,6 +2,7 @@ package com.hyh.datastructure.class_08;
 
 import java.util.HashSet;
 
+//打印一个字符串的全部排列
 public class Code_04_Print_All_Permutations {
 
 	public static void printAllPermutations1(String str) {

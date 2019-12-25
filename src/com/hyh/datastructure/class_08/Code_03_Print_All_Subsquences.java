@@ -3,6 +3,7 @@ package com.hyh.datastructure.class_08;
 import java.util.ArrayList;
 import java.util.List;
 
+//打印一个字符串的所有子序列
 public class Code_03_Print_All_Subsquences {
 
 	public static void printAllSubsquence(String str) {
@@ -49,7 +50,20 @@ public class Code_03_Print_All_Subsquences {
 
 	public static void main(String[] args) {
 		String test = "abc";
-		printAllSubsquence(test);
+		//printAllSubsquence(test);
+		process(test.toCharArray(), 0, "");
+	}
+
+	//打印所有子序列
+	private static void process(char[] chars, int index, String res) {
+		if (index == chars.length) {
+			System.out.println("res = " + res);
+			return;
+		}
+		//不要
+		process(chars, index + 1, res + "*");
+		//要
+		process(chars, index + 1, res + chars[index]);
 	}
 
 }
