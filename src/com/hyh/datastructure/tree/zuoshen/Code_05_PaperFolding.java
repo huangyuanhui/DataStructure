@@ -1,5 +1,6 @@
 package com.hyh.datastructure.tree.zuoshen;
 
+//折纸问题
 public class Code_05_PaperFolding {
 
 	public static void printAllFolds(int N) {

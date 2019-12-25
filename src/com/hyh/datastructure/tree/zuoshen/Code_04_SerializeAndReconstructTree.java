@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+//序列化与反序列化一棵树
 public class Code_04_SerializeAndReconstructTree {
 
 	public static class Node {
