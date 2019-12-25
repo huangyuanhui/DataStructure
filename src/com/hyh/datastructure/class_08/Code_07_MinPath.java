@@ -1,5 +1,6 @@
 package com.hyh.datastructure.class_08;
 
+//从矩阵左上角到达右下角 最短的路径是多少？ 路径等于经过坐标值相加
 public class Code_07_MinPath {
 
 	public static int minPath1(int[][] matrix) {
@@ -64,5 +65,27 @@ public class Code_07_MinPath {
 		m = generateRandomMatrix(6, 7);
 		System.out.println(minPath1(m));
 		System.out.println(minPath2(m));
+
+		System.out.println("process(m, 0, 0) = " + process(m, 0, 0));
+	}
+
+	//只能向下和向右走
+	private static int process(int[][] matrix, int row, int column) {
+		if (row == matrix.length - 1 && column == matrix[0].length - 1) {
+			return matrix[row][column];
+		}
+		if (row == matrix.length - 1) {
+			return matrix[row][column] + process(matrix, row, column + 1);
+		}
+		if (column == matrix[0].length - 1) {
+			return matrix[row][column] + process(matrix, row + 1, column);
+		}
+
+		//往下走
+		int down = matrix[row][column] + process(matrix, row + 1, column);
+		//往右走
+		int right = matrix[row][column] + process(matrix, row, column + 1);
+		//往回窜 选出较短的返回
+		return Math.min(down, right);
 	}
 }
