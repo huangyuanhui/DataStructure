@@ -7,7 +7,30 @@ import java.util.Stack;
  */
 public class MaxReactDemo {
     public static void main(String[] args) {
+        int matrix[][] = {
+                {1, 1, 1, 0, 1},
+                {0, 1, 0, 1, 1},
+                {1, 0, 0, 1, 1},
+                {1, 0, 1, 0, 1},
+                {1, 1, 1, 0, 1},
+                {1, 1, 1, 1, 1}
+        };
+        System.out.println("maxRecSizeOfMatrix(matrix) = " + maxRecSizeOfMatrix(matrix));
+    }
 
+    private static int maxRecSizeOfMatrix(int[][] matrix) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return 0;
+        }
+        int maxSize = 0;
+        int[] height = new int[matrix[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                height[j] = matrix[i][j] == 0 ? 0 : height[j] + matrix[i][j];
+            }
+            maxSize = Math.max(maxSize, maxRecFromBottom(height));
+        }
+        return maxSize;
     }
 
     public static int maxRecFromBottom(int[] height) {
