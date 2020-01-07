@@ -1,6 +1,6 @@
 package com.hyh.datastructure.sort;
 
-//小和问题
+//小和问题 在一个数组中，每一个数左边比当前数小的数累加起来，叫做这个数组的小和。求一个数组的小和。
 public class SmallSumDemo {
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 2, 5};
