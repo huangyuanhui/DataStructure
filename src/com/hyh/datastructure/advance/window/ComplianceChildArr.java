@@ -27,7 +27,7 @@ import java.util.LinkedList;
 public class ComplianceChildArr {
     public static int getComplianceChildArr(int arr[], int num) {
         //最大值、最小值更新结构
-        LinkedList<Integer> maxQ = new LinkedList();
+        LinkedList<Integer> maxQ = new LinkedList<>();
         LinkedList<Integer> minQ = new LinkedList<>();
         int L = 0;
         int R = 0;
