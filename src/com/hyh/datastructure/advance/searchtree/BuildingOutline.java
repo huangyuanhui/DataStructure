@@ -58,7 +58,6 @@ public class BuildingOutline {
             }
         }
 
-        //
         List<List<Integer>> res = new ArrayList<>();
         int start = 0;
         int height  = 0;  //前一个位置的高度
