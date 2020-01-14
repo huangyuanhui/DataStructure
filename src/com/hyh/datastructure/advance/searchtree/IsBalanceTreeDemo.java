@@ -35,6 +35,9 @@ public class IsBalanceTreeDemo {
         if (!rightReturnType.isBalance) {
             return new ReturnType(false, 0);
         }
+        if (Math.abs(leftReturnType.high - rightReturnType.high) > 1) {
+            return new ReturnType(false, 0);
+        }
         return new ReturnType(true, Math.max(leftReturnType.high, rightReturnType.high) + 1);
     }
 
