@@ -4,6 +4,18 @@ import java.util.HashMap;
 
 public class Code_03_LFU {
 
+	public static void main(String[] args) {
+		LFUCache testCache = new LFUCache(3);
+		testCache.set(1, 1);
+		testCache.set(2, 2);
+		testCache.set(3, 3);
+		System.out.println(testCache.get(1));
+		System.out.println(testCache.get(2));
+		testCache.set(3, 4);
+		System.out.println(testCache.get(3));
+		System.out.println(testCache.get(3));
+	}
+
 	public static class Node {
 		public Integer key;
 		public Integer value;
