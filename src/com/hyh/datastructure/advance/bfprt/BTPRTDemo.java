@@ -122,6 +122,8 @@ public class BTPRTDemo {
         }
     }
 
+
+
     //快速排序
     public static int[] partition(int[] arr, int begin, int end, int pivot) {
         int L = begin - 1;
@@ -144,4 +146,5 @@ public class BTPRTDemo {
         arr[j] = tmp;
     }
 
+    //哈哈
 }
