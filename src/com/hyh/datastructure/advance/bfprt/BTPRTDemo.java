@@ -96,7 +96,6 @@ public class BTPRTDemo {
         return bfprtByHyh(medians, 0, medians.length - 1, medians.length / 2);
     }
 
-
     //获取分组中的中位数
     public static int getMedian(int[] arr, int begin, int end) {
         //对分组排序
