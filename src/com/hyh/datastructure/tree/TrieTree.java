@@ -1,6 +1,6 @@
 package com.hyh.datastructure.tree;
 
-//前缀树
+//前缀树（字典树）
 public class TrieTree {
 
 	//节点
